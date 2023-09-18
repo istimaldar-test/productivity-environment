@@ -1,0 +1,17 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "go-task@latest": {
+      "last_modified": "2023-09-17T10:54:49Z",
+      "resolved": "github:NixOS/nixpkgs/5148520bfab61f99fd25fb9ff7bfbb50dad3c9db#go-task",
+      "source": "devbox-search",
+      "version": "3.29.1"
+    },
+    "yq-go@latest": {
+      "last_modified": "2023-09-17T10:54:49Z",
+      "resolved": "github:NixOS/nixpkgs/5148520bfab61f99fd25fb9ff7bfbb50dad3c9db#yq-go",
+      "source": "devbox-search",
+      "version": "4.35.1"
+    }
+  }
+}

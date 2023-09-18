@@ -1,0 +1,22 @@
+version: '3'
+
+vars:
+  ARGO_CD_REPO:
+    sh:  yq '.applications[0].repo' charts/argo-application/values.yaml
+  ARGO_CD_CHART:
+    sh:  yq '.applications[0].chart' charts/argo-application/values.yaml
+  ARGO_CD_VERSION:
+    sh:  yq '.applications[0].version' charts/argo-application/values.yaml
+  ARGO_CD_NAME:
+    sh:  yq '.applications[0].name' charts/argo-application/values.yaml
+  ARGO_CD_NAMESPACE:
+    sh:  yq '.applications[0].namespace' charts/argo-application/values.yaml
+
+tasks:
+  deploy:
+    dir: .
+    cmds:
+      - 'helm repo add argo {{ .ARGO_CD_REPO }}' 
+      - 'helm upgrade --install {{ .ARGO_CD_NAME }} argo/{{ .ARGO_CD_CHART }} --version {{ .ARGO_CD_VERSION }} --namespace {{ .ARGO_CD_NAMESPACE }} --create-namespace -f values/{{ .ARGO_CD_NAME }}.yaml'
+      - 'helm upgrade --install argo-application ./charts/argo-application --namespace {{ .ARGO_CD_NAMESPACE }} --create-namespace -f values/argo-application.yaml'
+      - kubectl get secrets -n continious-delivery argocd-initial-admin-secret -o=jsonpath='{.data.password}' | base64 -d

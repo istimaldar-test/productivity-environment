@@ -1,0 +1,7 @@
+applications:
+  - name: argo-cd
+    namespace: continious-delivery
+    enabled: true
+    repo: https://argoproj.github.io/argo-helm
+    chart: argo-cd
+    version: '5.46.5'
