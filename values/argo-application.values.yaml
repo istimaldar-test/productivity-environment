@@ -1,3 +1,4 @@
+settingsRepo: "https://github.com/istimaldar-test/productivity-environment.git"
 applications:
   - name: argo-cd
     namespace: continious-delivery
