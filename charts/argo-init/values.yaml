@@ -1,0 +1,4 @@
+nameOverride: ""
+fullnameOverride: ""
+namespace: continious-delivery
+repo: https://argoproj.github.io/argo-helm

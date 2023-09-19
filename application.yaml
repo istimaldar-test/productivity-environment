@@ -1,0 +1,32 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-application
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: default
+  sources:
+    repoURL: https://codeberg.org/istimaldar/noic.git
+    targetRevision: HEAD
+    path: kubernetes/charts/argo-system
+    helm:
+      parameters:
+        - name: environment
+          value: {{ .Values.environment | quote }}
+      valueFiles:
+        - ../../values/{{ .Values.environment }}/argo-system.values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argo-cd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+      - Validate=false
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
