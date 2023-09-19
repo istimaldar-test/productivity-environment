@@ -20,5 +20,5 @@ tasks:
     cmds:
       - 'helm repo add argo {{ .ARGO_CD_REPO }}' 
       - 'helm upgrade --install {{ .ARGO_CD_NAME }} argo/{{ .ARGO_CD_CHART }} --version {{ .ARGO_CD_VERSION }} --namespace {{ .ARGO_CD_NAMESPACE }} --create-namespace -f values/{{ .ARGO_CD_NAME }}.values.yaml'
-      - 'helm upgrade --install argo-init ./charts/argo-init --namespace {{ .ARGO_CD_NAMESPACE }} --create-namespace --set namespace={{ .SETTINGS_REPO }},repo={{ .ARGO_CD_REPO }}'
+      - 'helm upgrade --install argo-init ./charts/argo-init --namespace {{ .ARGO_CD_NAMESPACE }} --create-namespace --set namespace={{ .ARGO_CD_NAMESPACE }},settingsRepo={{ .SETTINGS_REPO }}'
       - kubectl get secrets -n continious-delivery argocd-initial-admin-secret -o=jsonpath='{.data.password}' | base64 -d

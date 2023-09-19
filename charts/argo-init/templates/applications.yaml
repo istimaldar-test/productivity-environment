@@ -10,7 +10,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: {{ .Values.repo | quote }}
+    repoURL: {{ .Values.settingsRepo | quote }}
     targetRevision: HEAD
     path: charts/argo-application
     helm:
