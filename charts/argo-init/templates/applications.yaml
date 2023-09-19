@@ -9,7 +9,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   project: default
-  sources:
+  source:
     repoURL: {{ .Values.repo | quote }}
     targetRevision: HEAD
     path: charts/argo-application
