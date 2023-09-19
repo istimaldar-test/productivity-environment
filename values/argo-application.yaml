@@ -5,3 +5,9 @@ applications:
     repo: https://argoproj.github.io/argo-helm
     chart: argo-cd
     version: '5.46.5'
+  - name: meilisearch
+    namespace: meilisearch
+    enabled: true
+    repo: https://meilisearch.github.io/meilisearch-kubernetes
+    chart: meilisearch
+    version: 0.2.6
