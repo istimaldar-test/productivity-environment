@@ -17,6 +17,6 @@ tasks:
     dir: .
     cmds:
       - 'helm repo add argo {{ .ARGO_CD_REPO }}' 
-      - 'helm upgrade --install {{ .ARGO_CD_NAME }} argo/{{ .ARGO_CD_CHART }} --version {{ .ARGO_CD_VERSION }} --namespace {{ .ARGO_CD_NAMESPACE }} --create-namespace -f values/{{ .ARGO_CD_NAME }}.yaml'
-      - 'helm upgrade --install argo-application ./charts/argo-application --namespace {{ .ARGO_CD_NAMESPACE }} --create-namespace -f values/argo-application.yaml'
+      - 'helm upgrade --install {{ .ARGO_CD_NAME }} argo/{{ .ARGO_CD_CHART }} --version {{ .ARGO_CD_VERSION }} --namespace {{ .ARGO_CD_NAMESPACE }} --create-namespace -f values/{{ .ARGO_CD_NAME }}.values.yaml'
+      - 'helm upgrade --install argo-application ./charts/argo-application --namespace {{ .ARGO_CD_NAMESPACE }} --create-namespace -f values/argo-application.values.yaml'
       - kubectl get secrets -n continious-delivery argocd-initial-admin-secret -o=jsonpath='{.data.password}' | base64 -d
