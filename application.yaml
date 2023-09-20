@@ -3,6 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: "argo-applications"
+  namespace: continious-delivery
 spec:
   project: default
   source:
