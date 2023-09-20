@@ -12,3 +12,9 @@ applications:
     repo: https://meilisearch.github.io/meilisearch-kubernetes
     chart: meilisearch
     version: '0.2.6'
+  - name: argo-workflows
+    namespace: continious-integration
+    enabled: true
+    repo: https://argoproj.github.io/argo-helm
+    chart: argo-workflows
+    version: '0.33.3'

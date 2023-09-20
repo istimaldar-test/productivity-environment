@@ -1,5 +1,5 @@
 ingress:
   enabled: true
-  className: traefik
+  className: ''
   hosts:
     - meilisearch.local.gd
