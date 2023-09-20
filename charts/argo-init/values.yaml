@@ -1,4 +1,0 @@
-nameOverride: ""
-fullnameOverride: ""
-namespace: continious-delivery
-settingsRepo: "https://github.com/istimaldar-test/productivity-environment.git"
