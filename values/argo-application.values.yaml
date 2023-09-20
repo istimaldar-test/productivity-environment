@@ -11,4 +11,4 @@ applications:
     enabled: true
     repo: https://meilisearch.github.io/meilisearch-kubernetes
     chart: meilisearch
-    version: 0.2.6
+    version: '0.2.6'
