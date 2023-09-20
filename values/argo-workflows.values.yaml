@@ -1,4 +1,5 @@
-ingress:
-  enabled: true
-  hosts:
-    - workflows.local.gd
+server:
+  ingress:
+    enabled: true
+    hosts:
+      - workflows.local.gd
